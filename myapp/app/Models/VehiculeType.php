@@ -9,4 +9,9 @@ class VehiculeType extends Model
     protected $table = 'vehicule_type';
 
     protected $fillable = ['id', 'name'];
+
+    public function vehicules()
+    {
+        return $this->hasMany(Vehicule::class);
+    }
 }

@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
   public function index()
   {
-    $vehicules = Vehicule::limit(6)->get();
+    $vehicules = Vehicule::with('vehiculeType')->take(6)->get();
 
     return view('welcome', ['vehicules' => $vehicules]);
   }
