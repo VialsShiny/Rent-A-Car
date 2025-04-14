@@ -22,7 +22,7 @@ INSERT INTO vehicule (brand, model, year, price_per_day, doors, fuel_type, air_c
 ('Jeep', 'Wrangler', 2023, 80.00, 3, 'diesel', TRUE, 5, 'manuelle', 3),
 ('Mazda', 'CX-5', 2022, 55.00, 5, 'essence', TRUE, 5, 'automatique', 4),
 ('Ford', 'F-150', 2021, 75.00, 4, 'diesel', TRUE, 5, 'automatique', 5),
-('BMW', '4 Series Cabriolet', 2023, 95.00 2, 'essence', TRUE, 4, 'automatique', 6),
+('BMW', '4 Series Cabriolet', 2023, 95.00, 2, 'essence', TRUE, 4, 'automatique', 6),
 ('Hyundai', 'Tucson', 2022, 50.00, 5, 'hybride', TRUE, 5, 'automatique', 4),
 ('Mercedes', 'E-Class', 2023, 90.00,  4, 'diesel', TRUE, 5, 'automatique', 1),
 ('Volkswagen', 'Multivan', 2021, 70.00,  5, 'essence', TRUE, 7, 'automatique', 2);
