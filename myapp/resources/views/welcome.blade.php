@@ -71,11 +71,12 @@
               image="{{ strtolower($vehicule->brand) }}" 
               image_alt="Image of {{ $vehicule->brand }}" 
               name="{{ $vehicule->brand }}" 
+              model="{{ $vehicule->model }}" 
               price="{{ $vehicule->price_per_day }}" 
-              type="{{ $vehicule->vehicule_type_id }}" 
+              type="{{ $vehicule->vehiculeType->name }}" 
               transmission="{{ $vehicule->transmission }}" 
               fuel="{{ $vehicule->fuel_type }}" 
-              air_conditionning="{{ $vehicule->air_conditionning }}" 
+              air_conditioning="{{ $vehicule->air_conditioning }}" 
           />
       @endforeach
     </div>
