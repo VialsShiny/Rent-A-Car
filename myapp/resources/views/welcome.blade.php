@@ -64,7 +64,7 @@
       <a href="/vehicules" class="font-bold text-lg hover:pr-3 transition-all ease-in-out duration-500">View All <i class="ri-arrow-right-long-line"></i></a>
     </div>
     <div class="flex flex-wrap gap-4">
-      <x-car-card />
+      <x-car-card name="caca" />
     </div>
   </div>
 </x-app-layout>
