@@ -10,6 +10,6 @@ class HomeController extends Controller
   {
     $vehicules = Vehicule::with('vehiculeType')->take(6)->get();
 
-    return view('welcome', ['vehicules' => $vehicules]);
+    return view('welcome', ['vehicules' => $vehicules, 'title' => 'Home']);
   }
 }
