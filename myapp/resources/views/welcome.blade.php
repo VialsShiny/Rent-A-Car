@@ -1,7 +1,3 @@
-@php
-  $title = 'Welcome';
-@endphp
-
 <x-app-layout :title="$title">
   <x-book-car>
     <div class="relative z-5 flex flex-col gap-y-8 w-4/6">
