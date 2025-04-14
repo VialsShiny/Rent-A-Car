@@ -58,10 +58,26 @@
     </div>
   </div>
 
-  <div class="flex flex-col gap-y-8">
+  <div class="flex flex-col gap-y-8 py-12">
     <div class="flex justify-between">
       <h3 class="text-3xl font-bold">Choose the car that suits you</h3>
-      <a href="/vehicules" class="font-bold text-lg hover:pr-3 transition-all ease-in-out duration-500">View All <i class="ri-arrow-right-long-line"></i></a>
+      <a href="/vehicules" class="font-bold text-lg hover:pr-3 transition-all ease-in-out duration-500">View All <i
+          class="ri-arrow-right-long-line"></i></a>
+    </div>
+    <div class="grid grid-cols-3 gap-4">
+      @foreach ($vehicules as $vehicule)
+          <x-car-card 
+              id="{{ $vehicule->id }}" 
+              image="{{ strtolower($vehicule->brand) }}" 
+              image_alt="Image of {{ $vehicule->brand }}" 
+              name="{{ $vehicule->brand }}" 
+              price="{{ $vehicule->price_per_day }}" 
+              type="{{ $vehicule->vehicule_type_id }}" 
+              transmission="{{ $vehicule->transmission }}" 
+              fuel="{{ $vehicule->fuel_type }}" 
+              air_conditionning="{{ $vehicule->air_conditionning }}" 
+          />
+      @endforeach
     </div>
   </div>
 </x-app-layout>
