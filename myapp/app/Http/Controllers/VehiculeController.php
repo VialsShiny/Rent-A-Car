@@ -14,6 +14,12 @@ class VehiculeController extends Controller
       return view('vehicules', ['vehicules' => $vehicules, 'title' => 'Vehicules']);
     }
 
+    public function details($id) {
+      $vehicule = Vehicule::with('vehiculeType')->find($id);
+
+      return view('details', ['vehicule' => $vehicule, 'title' => "$vehicule->brand $vehicule->model"]);
+    }
+
     public function reservation($id) {
       $vehicule = Vehicule::with('vehiculeType')->find($id);
 
