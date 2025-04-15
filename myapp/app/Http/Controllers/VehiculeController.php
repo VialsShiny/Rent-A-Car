@@ -2,27 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Equipment;
 use App\Models\Vehicule;
 use Illuminate\Http\Request;
 
 class VehiculeController extends Controller
 {
-    public function index()
-    {
-      $vehicules = Vehicule::with('vehiculeType')->get();
-  
-      return view('vehicules', ['vehicules' => $vehicules, 'title' => 'Vehicules']);
+  public function index()
+  {
+    $vehicules = Vehicule::with('vehiculeType')->get();
+
+    return view('vehicules', ['vehicules' => $vehicules, 'title' => 'Vehicules']);
+  }
+
+  public function details($id)
+  {
+    $vehicule = Vehicule::with('vehiculeType', 'equipments')->find($id);
+    $equipments = Equipment::all();
+
+    $vehicule->air_conditioning = $vehicule->air_conditioning === false ? 'No' : 'Yes';
+
+    if (strlen($vehicule->vehiculeType->name) <= 3) {
+      $vehicule->vehiculeType->name = strtoupper($vehicule->vehiculeType->name);
     }
 
-    public function details($id) {
-      $vehicule = Vehicule::with('vehiculeType')->find($id);
+    return view('details', ['vehicule' => $vehicule, 'title' => "$vehicule->brand $vehicule->model", 'equipments' => $equipments]);
+  }
 
-      return view('details', ['vehicule' => $vehicule, 'title' => "$vehicule->brand $vehicule->model"]);
-    }
+  public function reservation($id)
+  {
+    $vehicule = Vehicule::with('vehiculeType')->find($id);
 
-    public function reservation($id) {
-      $vehicule = Vehicule::with('vehiculeType')->find($id);
-
-      return view('reservation', ['vehicule' => $vehicule, 'title' => 'Reservation']);
-    }
+    return view('reservation', ['vehicule' => $vehicule, 'title' => 'Reservation']);
+  }
 }
