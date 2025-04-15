@@ -9,7 +9,7 @@ class VehiculeController extends Controller
 {
     public function index()
     {
-      $vehicules = Vehicule::with('vehiculeType')->take(6)->get();
+      $vehicules = Vehicule::with('vehiculeType')->get();
   
       return view('vehicules', ['vehicules' => $vehicules, 'title' => 'Vehicules']);
     }
