@@ -1,8 +1,6 @@
 import './bootstrap';
 import 'remixicon/fonts/remixicon.css'
-import { filter, vehicules } from './filter';
-
-vehicules();
+import './filter';
 
 import Alpine from 'alpinejs';
 

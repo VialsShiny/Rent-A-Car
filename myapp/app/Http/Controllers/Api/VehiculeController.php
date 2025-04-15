@@ -12,7 +12,26 @@ class VehiculeController extends Controller
 {
     public function all(Request $request): JsonResponse
     {
-        $res = Vehicule::all()->toArray();
-        return response()->json(['data' => $res]);
+        $vehicule_type = $request->input('vehicule_type');
+        $fuel_type = $request->input('fuel_type');
+        $transmission = $request->input('transmission');
+
+        $query = Vehicule::query();
+
+        if ($vehicule_type !== 'all') {
+            $query->where('vehicule_type_id', $vehicule_type);
+        }
+
+        if ($fuel_type !== 'all') {
+            $query->where('fuel_type', $fuel_type);
+        }
+
+        if ($transmission !== 'all') {
+            $query->where('transmission', $transmission);
+        }
+
+        $data = $query->get();
+
+        return response()->json($data);
     }
 }

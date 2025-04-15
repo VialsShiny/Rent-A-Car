@@ -9,14 +9,31 @@
 @endphp
 
 <div class="flex flex-wrap justify-center gap-4">
-    <input type="radio" name="{{ $main_name }}" id="all_{{ $main_name }}" class="hidden peer" checked>
+    <input type="radio" name="{{ $main_name }}" id="all_{{ $main_name }}" class="hidden peer" data-value="all"
+        checked>
     <label for="all_{{ $main_name }}" class="{{ $class . $checkbox }}">All {{ $main_name }}</label>
 
     @if ($filters)
-        @foreach ($filters as $filter)
+        @foreach ($filters ?? [] as $filter)
+            @php
+                $params = [];
+
+                if (!empty($filter->name)) {
+                    $params[] = 'data-value="' . e($filter->name) . '"';
+                }
+
+                if (!empty($filter->id)) {
+                    $params[] = 'data-id="' . e($filter->id) . '"';
+                }
+
+                $paramsString = implode(' ', $params);
+            @endphp
+
             <div>
-                <input type="radio" name="{{ $main_name }}" id="{{ $filter->name }}" class="hidden peer">
-                <label for="{{ $filter->name }}" class="{{ $class . $checkbox }}">
+                <input type="radio" name="{{ $main_name }}" id="{{ $filter->name }}" class="hidden peer"
+                    {!! $paramsString !!}>
+
+                <label for="{{ $filter->name }}" class="{{ $class . $checkbox }} font-medium">
                     <i class="{{ $icon }} mr-2"></i> {{ ucfirst($filter->name) }}
                 </label>
             </div>
