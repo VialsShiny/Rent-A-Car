@@ -17,7 +17,7 @@
             <div>
                 <input type="radio" name="{{ $main_name }}" id="{{ $filter->name }}" class="hidden peer">
                 <label for="{{ $filter->name }}" class="{{ $class . $checkbox }}">
-                    <i class="{{ $icon }}"></i> {{ ucfirst($filter->name) }}
+                    <i class="{{ $icon }} mr-2"></i> {{ ucfirst($filter->name) }}
                 </label>
             </div>
         @endforeach
