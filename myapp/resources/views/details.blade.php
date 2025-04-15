@@ -1,7 +1,7 @@
 <x-app-layout :title="$title">
     <div class="grid grid-cols-2 gap-12">
         <x-car-presentation name="{{ $vehicule->brand }}" price_per_day="{{ $vehicule->price_per_day }}" car_image="{{ $car_image }}"/>
-        <div class="flex flex-col gap-8">
+            <div class="flex flex-col gap-8">
             <strong class="text-2xl">Technical Specification</strong>
             <div class="flex flex-wrap gap-6">
                 <x-specification-container icon="ri-draggable" title="Gear Box" info="{{ $vehicule->transmission }}" />

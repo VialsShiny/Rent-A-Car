@@ -19,7 +19,7 @@ class VehiculeController extends Controller
   {
     $vehicule = Vehicule::with('vehiculeType', 'equipments')->find($id);
     $equipments = Equipment::all();
-    
+
     $image = strtolower(str_replace(' ', '_', $vehicule->brand)) . '_' . strtolower(str_replace(' ', '_', $vehicule->model)) . '.png';
     $vehicule->air_conditioning = $vehicule->air_conditioning === false ? 'No' : 'Yes';
 
@@ -34,6 +34,8 @@ class VehiculeController extends Controller
   {
     $vehicule = Vehicule::with('vehiculeType')->find($id);
 
-    return view('reservation', ['vehicule' => $vehicule, 'title' => 'Reservation']);
+    $image = strtolower(str_replace(' ', '_', $vehicule->brand)) . '_' . strtolower(str_replace(' ', '_', $vehicule->model)) . '.png';
+
+    return view('reservation', ['vehicule' => $vehicule, 'title' => 'Reservation', 'car_image' => $image]);
   }
 }
