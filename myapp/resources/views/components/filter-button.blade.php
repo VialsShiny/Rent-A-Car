@@ -1,4 +1,9 @@
-@props(['main_name' => 'Not Found', 'icon' => 'ri-error-warning-line', 'filters' => false])
+@props([
+    'main_name' => 'Not Found',
+    'icon' => 'ri-error-warning-line',
+    'filters' => false,
+    'button_checked' => null,
+])
 
 @php
     $error =
@@ -29,9 +34,15 @@
                 $paramsString = implode(' ', $params);
             @endphp
 
+            @if ($button_checked)
+                @php
+                    $checkedFlag = $button_checked === $filter->name;
+                @endphp
+            @endif
+
             <div>
                 <input type="radio" name="{{ $main_name }}" id="{{ $filter->name }}" class="hidden peer"
-                    {!! $paramsString !!}>
+                    {!! $paramsString !!} {{ isset($checkedFlag) && $checkedFlag ? 'checked' : '' }}>
 
                 <label for="{{ $filter->name }}" class="{{ $class . $checkbox }} font-medium">
                     <i class="{{ $icon }} mr-2"></i> {{ ucfirst($filter->name) }}
