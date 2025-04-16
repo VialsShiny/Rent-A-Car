@@ -10,7 +10,7 @@ function checkButton() {
 
 filterButtons.forEach(button => {
   button.addEventListener('click', checkButton);
-});
+}); 
 
 function createVehiculeCard(vehicule) {
   const brand = vehicule['brand'] ? vehicule['brand'].toLowerCase().replace(/\s+/g, '_') : 'default_name';

@@ -10,13 +10,17 @@ use DB;
 
 class VehiculeController extends Controller
 {
-  public function index()
+  public function index(Request $request)
   {
+    if ($request->isMethod('post')) {
+      $data = $request->all();
+    }
+
     $vehicule_type = VehiculeType::all();
     $fuel_type = Vehicule::select(DB::raw('fuel_type as name'))->groupBy('fuel_type')->get();
     $transmission = Vehicule::select(DB::raw('transmission as name'))->groupBy('transmission')->get();
 
-    return view('vehicules', ['title' => 'Vehicules', 'vehicule_type' => $vehicule_type, 'fuel_type' => $fuel_type, 'transmission' => $transmission]);
+    return view('vehicules', ['title' => 'Vehicules', 'vehicule_type' => $vehicule_type, 'fuel_type' => $fuel_type, 'transmission' => $transmission, 'post_data' => $data ?? null]);
   }
 
   public function details($id)
