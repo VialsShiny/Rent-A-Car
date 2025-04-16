@@ -4,7 +4,7 @@
     <div class="mt-24 grid grid-cols-3 items-center gap-24">
         <x-car-presentation name="{{ $vehicule->brand }}" price_per_day="{{ $vehicule->price_per_day }}"
             car_image="{{ $car_image }}" customClass="col-span-2 gap-4" />
-        <form action="#" method="post" class="flex flex-col gap-10">
+        <form method="post" class="flex flex-col gap-10" id="rent-form">
             <input type="hidden" name="vehicule_id" id="vehicule_id" value="{{ $vehicule->id }}">
             <input type="text" name="start_date" id="start_date"
                 class="w-full border-none rounded-xl bg-gray-300/30 focus:ring-2 focus:ring-black"

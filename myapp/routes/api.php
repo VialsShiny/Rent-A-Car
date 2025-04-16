@@ -6,3 +6,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/vehicules', [VehiculeController::class, 'all']);
 Route::post('/get/allReservation', [ReservationController::class, 'getByID']);
+Route::post('/vehicule-mail', [ReservationController::class, 'sendRentMail']);

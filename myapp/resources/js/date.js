@@ -1,5 +1,6 @@
 import flatpickr from "flatpickr";
 
+const form = document.querySelector('#rent-form');
 const startDate = document.querySelector('#start_date');
 const endDate = document.querySelector('#end_date');
 const totalPrice = document.querySelector('#total_price_text');
@@ -10,6 +11,7 @@ function getTomorrow() {
   today.setDate(today.getDate() + 1);
   return today;
 }
+
 function checkPrice(selectedDates, price_per_day) {
   if (selectedDates.length > 0) {
     const startDateValue = startDate._flatpickr.selectedDates[0];
@@ -103,5 +105,38 @@ function getReservation(id) {
     })
     .catch(error => console.error('Erreur:', error.message));
 }
+
+function sendMail(form) {
+  const formData = new FormData(form);
+  const data = Object.fromEntries(formData.entries()); // Convertir FormData en objet
+
+  console.log(data); // Afficher les données du formulaire
+
+  fetch(`/api/vehicule-mail`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      name: data['email'],
+    })
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log(data); // Afficher la réponse de l'API
+    })
+    .catch(error => console.error('Erreur:', error.message));
+}
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // Empêcher le rechargement de la page
+
+  sendMail(form); // Appeler la fonction sendMail avec le formulaire
+});
 
 getReservation(vehiculeID.value);

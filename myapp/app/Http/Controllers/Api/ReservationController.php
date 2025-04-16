@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Mail\RentMail;
 use App\Models\Reservation;
 use App\Models\Vehicule;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; // Ajout de l'importation de la classe Request
+use Illuminate\Support\Facades\Mail; // Correction de l'importation de Mail
 
 class ReservationController extends Controller
 {
@@ -27,5 +29,20 @@ class ReservationController extends Controller
             'reservations' => $reservations,
             'vehicule' => $vehicule
         ]);
+    }
+
+    public function sendRentMail(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+        ]);
+
+        $name = $request->input('name');
+
+        $rentMail = new RentMail($name);
+
+        Mail::to('vialsvialatou@gmail.com')->send($rentMail);
+
+        return response()->json(['message' => 'E-mail envoyé avec succès !']);
     }
 }
