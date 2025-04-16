@@ -30,6 +30,8 @@
 
     <x-footer/>
   </div>
+
+  <x-script/>
 </body>
 
 </html>

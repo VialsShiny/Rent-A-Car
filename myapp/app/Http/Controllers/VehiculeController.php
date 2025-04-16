@@ -4,15 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\Equipment;
 use App\Models\Vehicule;
+use App\Models\VehiculeType;
 use Illuminate\Http\Request;
+use DB;
 
 class VehiculeController extends Controller
 {
   public function index()
   {
-    $vehicules = Vehicule::with('vehiculeType')->get();
+    $vehicule_type = VehiculeType::all();
+    $fuel_type = Vehicule::select(DB::raw('fuel_type as name'))->groupBy('fuel_type')->get();
+    $transmission = Vehicule::select(DB::raw('transmission as name'))->groupBy('transmission')->get();
 
-    return view('vehicules', ['vehicules' => $vehicules, 'title' => 'Vehicules']);
+    return view('vehicules', ['title' => 'Vehicules', 'vehicule_type' => $vehicule_type, 'fuel_type' => $fuel_type, 'transmission' => $transmission]);
   }
 
   public function details($id)
