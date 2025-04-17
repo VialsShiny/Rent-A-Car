@@ -2,13 +2,14 @@
     <x-book-car>
         <div class="relative z-5 flex flex-col gap-y-8 w-4/6">
             <h2 class="text-white text-5xl font-bold">Experience the road like never before</h2>
-            <p class="text-white">Rent a car in just a few taps. Fast, flexible, and affordable, your next ride is always
+            <p class="text-white">Rent a car in just a few taps. Fast, flexible, and affordable, your next ride is
+                always
                 ready, wherever and
                 whenever you need it.</p>
-            <button type="button"
+            <a href="/vehicules"
                 class="max-w-32 text-white bg-[#FF9E0C] hover:brightness-75 focus:outline-none focus:ring-4 focus:ring-orange-300 font-medium rounded-xl text-sm px-5 py-2.5 text-center me-2 mb-2 transition-all ease-in-out duration-300">
                 View all cars
-            </button>
+            </a>
         </div>
         <div class="relative w-3/6 z-5 flex flex-col gap-y-6 p-6 bg-white rounded-2xl">
             <strong class="text-2xl text-center">Book your car</strong>
@@ -73,10 +74,10 @@
         <div class="grid grid-cols-3 gap-4">
             @foreach ($vehicules as $vehicule)
                 <x-car-card id="{{ $vehicule->id }}" image="{{ strtolower($vehicule->brand) }}"
-                    image_alt="Image of {{ $vehicule->brand }}" name="{{ $vehicule->brand }}"
-                    model="{{ $vehicule->model }}" price="{{ $vehicule->price_per_day }}"
-                    type="{{ $vehicule->vehiculeType->name }}" transmission="{{ $vehicule->transmission }}"
-                    fuel="{{ $vehicule->fuel_type }}" air_conditioning="{{ $vehicule->air_conditioning }}" />
+                    image_alt="Image of {{ $vehicule->brand }}" name="{{ $vehicule->brand }}" model="{{ $vehicule->model }}"
+                    price="{{ $vehicule->price_per_day }}" type="{{ $vehicule->vehiculeType->name }}"
+                    transmission="{{ $vehicule->transmission }}" fuel="{{ $vehicule->fuel_type }}"
+                    air_conditioning="{{ $vehicule->air_conditioning }}" />
             @endforeach
         </div>
     </div>
