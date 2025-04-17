@@ -46,8 +46,4 @@ class VehiculeController extends Controller
 
     return view('reservation', ['vehicule' => $vehicule, 'title' => 'Reservation', 'car_image' => $image]);
   }
-
-  public function teste() {
-    return view('emails.rent', ['title' => 'teste']);
-  }
 }

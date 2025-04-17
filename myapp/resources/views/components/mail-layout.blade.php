@@ -1,5 +1,3 @@
-@props(['title'])
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -8,32 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title }}</title>
-
-    <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
-
-    <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-    <style>
-        body {
-            background: linear-gradient(135deg, #5937E0 25%, #ffffff 25%, #ffffff 50%, #5937E0 50%, #5937E0 75%, #ffffff 75%, #ffffff 100%);
-        }
-    </style>
+    <title>Mail</title>
 </head>
 
-<body class="font-sans antialiased">
-    <div class="min-h-screen px-24 py-6 space-y-12">
+<body style="font-family: Arial, sans-serif;  background-color: #f3f4f6; margin: 0; padding: 0;">
+    <div
+        style="min-height: 500px; padding: 24px; justify-content: center; align-items: center;">
 
-        <!-- #Main -->
-        <main class="w-full">
+        <main style="width: 100%; padding-bottom: 48px;">
             {{ $slot }}
         </main>
 
-        <x-footer />
+        <div
+            style="width: 100%; text-align: center; padding: 16px; border-top: 1px solid #e5e7eb;">
+            <p style="font-size: 0.875rem; color: #6b7280;">&copy; {{ date('Y') }} Rent a Car. Tous droits réservés.
+            </p>
+        </div>
     </div>
-
-    <x-script />
 </body>
 
 </html>

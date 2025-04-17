@@ -1,11 +1,14 @@
 <x-app-layout :title="$title">
     <h1 class="text-5xl font-bold text-center py-12">Reservation</h1>
 
+    <x-loading-screen id_name="loading-message" />
     <div class="mt-24 grid grid-cols-3 items-center gap-24">
         <x-car-presentation name="{{ $vehicule->brand }}" price_per_day="{{ $vehicule->price_per_day }}"
             car_image="{{ $car_image }}" customClass="col-span-2 gap-4" />
         <form method="post" class="flex flex-col gap-10" id="rent-form">
             <input type="hidden" name="vehicule_id" id="vehicule_id" value="{{ $vehicule->id }}">
+            <input type="hidden" name="vehicule_name"
+                value="{{ "$vehicule->brand $vehicule->model | " . ucfirst($vehicule->vehiculeType->name) }}">
             <input type="text" name="start_date" id="start_date"
                 class="w-full border-none rounded-xl bg-gray-300/30 focus:ring-2 focus:ring-black"
                 placeholder="Choose a Start Date">
@@ -17,7 +20,7 @@
 
             <label for="total_price" class="flex gap-4 items-center font-thin">
                 <input type="checkbox" name="total_price" id="total_price"
-                    class="rounded-full flex justify-center items-center h-6 w-6 peer">
+                    class="rounded-full flex justify-center items-center h-6 w-6 peer" value="0" checked disabled>
                 <span class="peer-checked:w-full"> Total Price</span>
                 <p id="total_price_text" class="w-full justify-end hidden peer-checked:flex"></p>
             </label>
@@ -32,4 +35,5 @@
 <x-script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.2/popup.min.js"></script>
 </x-script>
