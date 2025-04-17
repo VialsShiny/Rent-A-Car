@@ -8,3 +8,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::match(['get', 'post'], '/vehicules', [VehiculeController::class, 'index'])->name('vehicules.index');
 Route::get('/vehicule/{id}/reservation', [VehiculeController::class, 'reservation']);
 Route::get('/vehicule/{id}', [VehiculeController::class, 'details']);
+Route::get('/teste', [VehiculeController::class, 'teste']);

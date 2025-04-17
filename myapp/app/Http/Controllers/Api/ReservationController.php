@@ -34,7 +34,7 @@ class ReservationController extends Controller
     public function sendRentMail(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
+            'email' => 'required|string|max:255',
         ]);
 
         $name = $request->input('name');
