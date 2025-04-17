@@ -10,16 +10,16 @@
         </div>
         <div class="flex gap-6">
             <li>
-                <a href="#">Home</a>
+                <a href="/">Home</a>
             </li>
             <li>
-                <a href="#">Vehicules</a>
+                <a href="/vehicules">Vehicules</a>
             </li>
             <li>
-                <a href="#">Details</a>
+                <a href="/vehicule/1">Details</a>
             </li>
             <li>
-                <a href="#">About Us</a>
+                <a href="/vehicule/1/reservation">Reservation</a>
             </li>
         </div>
         <div class="flex items-center gap-3">
