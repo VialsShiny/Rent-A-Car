@@ -6,9 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Mail\RentMail;
 use App\Models\Reservation;
 use App\Models\Vehicule;
-use Dotenv\Exception\ValidationException;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Http\Request; // Ajout de l'importation de la classe Request
+use Illuminate\Support\Facades\Mail; // Correction de l'importation de Mail
 
 class ReservationController extends Controller
 {
@@ -43,9 +42,8 @@ class ReservationController extends Controller
                 'end_date' => 'required|date|after:start_date',
                 'total_price' => 'required|integer|min:0|max:99999',
             ]);
-        } catch (ValidationException $e) {
-            // Récupération des erreurs de validation
-            return response()->json(['errors' => $e->validator->errors()], 422);
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            return response()->json(['errors' => $e->validator->errors()]);
         }
 
         $name = $request->input('name');

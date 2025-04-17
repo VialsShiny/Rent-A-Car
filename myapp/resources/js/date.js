@@ -26,9 +26,6 @@ function checkPrice(selectedDates, price_per_day) {
     const timeDiff = endDateValue - startDateValue;
     const daysDiff = Math.floor(timeDiff / (1000 * 3600 * 24)) + 1;
 
-    console.log(price_per_day);
-    console.log(daysDiff);
-
     totalPriceText.textContent = `$${daysDiff * price_per_day}`;
     totalPrice.value = daysDiff * price_per_day;
   } else {
@@ -66,7 +63,6 @@ function getReservation(id) {
 
       if (!data[1]) {
         data = data[0];
-        console.log(data['start_date']);
         return;
       }
 
@@ -111,20 +107,18 @@ function getReservation(id) {
 }
 
 function sendMail(form) {
-  const data = form;
-
   fetch(`/api/send/rent/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      name: data['name'],
-      email: data['email'],
-      vehicule_name: data['vehicule_name'],
-      start_date: data['start_date'],
-      end_date: data['end_date'],
-      total_price: data['total_price'],
+      name: form['name'],
+      email: form['email'],
+      vehicule_name: form['vehicule_name'],
+      start_date: form['start_date'],
+      end_date: form['end_date'],
+      total_price: form['total_price'],
     })
   })
     .then(response => {
@@ -135,12 +129,19 @@ function sendMail(form) {
     })
     .then(data => {
       SuppOverlay('loading-message');
+
       console.log(data);
-      console.log(data.message);
+
+      if (!data['errors']) {
+        confirmPopUp.show();
+        setTimeout(() => {
+          document.location.href = "/";
+        }, 3000);
+      }
     })
     .catch(error => {
       SuppOverlay('loading-message');
-      console.error(error.message);
+      console.error(error);
     });
 }
 
@@ -176,12 +177,36 @@ const NamePopUp = new Popup({
         const data = Object.fromEntries(formData.entries());
         data['name'] = nameValue;
 
-        if (!data.name || !data.email || !data.start_date || !data.end_date) {
+        document.getElementById('start_date_error').classList.add('hidden');
+        document.getElementById('end_date_error').classList.add('hidden');
+        document.getElementById('email_error').classList.add('hidden');
+
+        let hasError = false;
+
+        if (!data.start_date) {
+          document.getElementById('start_date_error').textContent = 'Le champ de date de début est requis.';
+          document.getElementById('start_date_error').classList.remove('hidden');
+          hasError = true;
+        }
+
+        if (!data.end_date) {
+          document.getElementById('end_date_error').textContent = 'Le champ de date de fin est requis.';
+          document.getElementById('end_date_error').classList.remove('hidden');
+          hasError = true;
+        }
+
+        if (!data.email) {
+          document.getElementById('email_error').textContent = 'L\'adresse e-mail est requise.';
+          document.getElementById('email_error').classList.remove('hidden');
+          hasError = true;
+        }
+
+        if (hasError) {
           NamePopUp.hide();
-          alert('Veuillez remplir tous les champs requis.');
           return;
         }
-        sendMail(data, nameValue);
+
+        sendMail(data);
         NamePopUp.hide();
         CreateOverlay('loading-message');
       }
