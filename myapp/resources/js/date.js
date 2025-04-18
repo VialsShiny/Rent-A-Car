@@ -131,8 +131,6 @@ function sendMail(form) {
     .then(data => {
       SuppOverlay('loading-message');
 
-      console.log(data);
-
       if (!data['errors']) {
         confirmPopUp.show();
         setTimeout(() => {

@@ -49,8 +49,6 @@ class ReservationController extends Controller
             return response()->json(['errors' => $e->validator->errors()]);
         }
 
-        var_dump($request->input());
-
         $name = $request->input('name');
         $email = $request->input('email');
         $vehicule_name = $request->input('vehicule_name');
