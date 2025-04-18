@@ -1,1 +1,1 @@
-<div class="w-full min-h-30 flex gap-12 justify-evenly px-12 py-6 rounded-2xl bg-gray-500/30 overflow-x-scroll" id="brand-banner"></div>
+<div class="w-full min-h-30 flex gap-12 justify-evenly px-12 py-8 my-12 rounded-2xl bg-gray-500/30 overflow-x-scroll" id="brand-banner"></div>

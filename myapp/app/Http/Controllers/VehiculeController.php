@@ -26,7 +26,7 @@ class VehiculeController extends Controller
   public function details($id)
   {
     $vehicule = Vehicule::with('vehiculeType', 'equipments')->find($id);
-    $vehicules = Vehicule::with('vehiculeType')->where('id', '!=', $vehicule->id)->take(6)->get();
+    $vehicules = Vehicule::with('vehiculeType', 'vehiculeImage')->where('id', '!=', $vehicule->id)->take(6)->get();
     $equipments = Equipment::all();
 
     $image = strtolower(str_replace(' ', '_', $vehicule->brand)) . '_' . strtolower(str_replace(' ', '_', $vehicule->model)) . '.png';
