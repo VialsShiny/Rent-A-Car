@@ -50,7 +50,7 @@ class DatabaseSeeder extends Seeder
             ['vehicule_id' => 5, 'image_url' => 'ford_f-150.png', 'display_order' => 0],
             ['vehicule_id' => 6, 'image_url' => 'bmw_4_series_cabriolet.png', 'display_order' => 0],
             ['vehicule_id' => 7, 'image_url' => 'hyundai_tucson.png', 'display_order' => 0],
-            ['vehicule_id' => 8, 'image_url' => 'mercedes_benz_eclass.png', 'display_order' => 0],
+            ['vehicule_id' => 8, 'image_url' => 'mercedes_benz_e-class.png', 'display_order' => 0],
             ['vehicule_id' => 9, 'image_url' => 'volkswagen_multivan.png', 'display_order' => 0],
         ]);
 
