@@ -1,4 +1,5 @@
 <x-app-layout :title="$title">
+    <x-loading-screen />
     <div id="filter" class="flex flex-col gap-8 py-8">
         <x-filter-button main_name="vehicules" icon="ri-car-line" :filters="$vehicule_type"
             button_checked="{{ isset($post_data['vehicule_type']) ? $post_data['vehicule_type'] : '' }}" />

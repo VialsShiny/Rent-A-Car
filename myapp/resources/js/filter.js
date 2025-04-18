@@ -1,5 +1,6 @@
 const filterButtons = document.querySelectorAll('#filter input');
 const vehiculesContainer = document.querySelector('#vehicules__container');
+import { CreateOverlay, SuppOverlay } from './loading';
 
 function checkButton() {
   const checkedValues = Array.from(filterButtons)
@@ -60,6 +61,7 @@ function createVehiculeCard(vehicule) {
 }
 
 function getVehicules(vehicule_type, fuel_type, transmission) {
+  CreateOverlay('loading-screen');
   fetch(`/api/vehicules`, {
     method: 'POST',
     headers: {
@@ -78,6 +80,7 @@ function getVehicules(vehicule_type, fuel_type, transmission) {
       return response.json();
     })
     .then(data => {
+      SuppOverlay('loading-screen');
       vehiculesContainer.innerHTML = '';
 
       data.forEach(vehicule => {

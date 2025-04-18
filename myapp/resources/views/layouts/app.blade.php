@@ -10,7 +10,7 @@
 
   <title>{{ $title }}</title>
 
-  <link rel="shortcut icon" href="favicon.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="{{ asset('favicon.svg') }}" type="image/x-icon">
 
   <!-- Scripts -->
   @vite(['resources/css/app.css', 'resources/js/app.js'])
