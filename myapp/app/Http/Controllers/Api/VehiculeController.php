@@ -38,7 +38,7 @@ class VehiculeController extends Controller
         $data = $query->get();
 
         if ($data->isEmpty()) {
-            return response()->json(['message' => 'Aucun véhicule trouvé.'], 404);
+            return response()->json(['message' => 'Aucun véhicule trouvé.']);
         }
 
         return response()->json($data);
