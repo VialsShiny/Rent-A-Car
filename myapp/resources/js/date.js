@@ -116,6 +116,7 @@ function sendMail(form) {
       name: form['name'],
       email: form['email'],
       vehicule_name: form['vehicule_name'],
+      vehicule_id: form['vehicule_id'],
       start_date: form['start_date'],
       end_date: form['end_date'],
       total_price: form['total_price'],
@@ -129,8 +130,6 @@ function sendMail(form) {
     })
     .then(data => {
       SuppOverlay('loading-message');
-
-      console.log(data);
 
       if (!data['errors']) {
         confirmPopUp.show();
