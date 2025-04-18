@@ -65,7 +65,6 @@ class ReservationController extends Controller
             'start_date' => $start_date,
             'end_date' => $end_date,
             'created_at' => 'NOW',
-            'updated_at' => null,
             'status' => 'pending',
             'total_price' => $total_price,
         ];
