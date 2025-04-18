@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             ['brand' => 'Ford', 'model' => 'F-150', 'year' => 2021, 'price_per_day' => 75.00, 'doors' => 4, 'fuel_type' => 'diesel', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 5],
             ['brand' => 'BMW', 'model' => '4 Series Cabriolet', 'year' => 2023, 'price_per_day' => 95.00, 'doors' => 2, 'fuel_type' => 'essence', 'air_conditioning' => true, 'seats' => 4, 'transmission' => 'automatique', 'vehicule_type_id' => 6],
             ['brand' => 'Hyundai', 'model' => 'Tucson', 'year' => 2022, 'price_per_day' => 50.00, 'doors' => 5, 'fuel_type' => 'hybride', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 4],
-            ['brand' => 'Mercedes', 'model' => 'E-Class', 'year' => 2023, 'price_per_day' => 90.00, 'doors' => 4, 'fuel_type' => 'diesel', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 1],
+            ['brand' => 'Mercedes Benz', 'model' => 'E-Class', 'year' => 2023, 'price_per_day' => 90.00, 'doors' => 4, 'fuel_type' => 'diesel', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 1],
             ['brand' => 'Volkswagen', 'model' => 'Multivan', 'year' => 2021, 'price_per_day' => 70.00, 'doors' => 5, 'fuel_type' => 'essence', 'air_conditioning' => true, 'seats' => 7, 'transmission' => 'automatique', 'vehicule_type_id' => 2],
         ]);
 
