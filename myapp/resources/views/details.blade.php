@@ -43,8 +43,8 @@
         </div>
         <div class="grid grid-cols-3 gap-4">
             @foreach ($vehicules as $vehicule)
-                <x-car-card id="{{ $vehicule->id }}" image="{{ strtolower($vehicule->brand) }}"
-                    image_alt="Image of {{ $vehicule->brand }}" name="{{ $vehicule->brand }}" model="{{ $vehicule->model }}"
+                <x-car-card id="{{ $vehicule->id }}" image="{{ $vehicule->vehiculeImage[0]->image_url }}"
+                    name="{{ $vehicule->brand }}" model="{{ $vehicule->model }}"
                     price="{{ $vehicule->price_per_day }}" type="{{ $vehicule->vehiculeType->name }}"
                     transmission="{{ $vehicule->transmission }}" fuel="{{ $vehicule->fuel_type }}"
                     air_conditioning="{{ $vehicule->air_conditioning }}" />
