@@ -43,15 +43,15 @@ class DatabaseSeeder extends Seeder
 
         // 📸 Vehicle Photos (1 per vehicle for now)
         DB::table('vehicule_photo')->insert([
-            ['vehicule_id' => 1, 'image_url' => 'images/toyota_corolla_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 2, 'image_url' => 'images/honda_odyssey_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 3, 'image_url' => 'images/jeep_wrangler_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 4, 'image_url' => 'images/mazda_cx5_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 5, 'image_url' => 'images/ford_f150_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 6, 'image_url' => 'images/bmw_4series_cab_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 7, 'image_url' => 'images/hyundai_tucson_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 8, 'image_url' => 'images/mercedes_eclass_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 9, 'image_url' => 'images/vw_multivan_1.jpg', 'display_order' => 0],
+            ['vehicule_id' => 1, 'image_url' => 'toyota_corolla.png', 'display_order' => 0],
+            ['vehicule_id' => 2, 'image_url' => 'honda_odyssey.png', 'display_order' => 0], 
+            ['vehicule_id' => 3, 'image_url' => 'jeep_wrangler.png', 'display_order' => 0],
+            ['vehicule_id' => 4, 'image_url' => 'mazda_cx-5.png', 'display_order' => 0],
+            ['vehicule_id' => 5, 'image_url' => 'ford_f-150.png', 'display_order' => 0],
+            ['vehicule_id' => 6, 'image_url' => 'bmw_4_series_cabriolet.png', 'display_order' => 0],
+            ['vehicule_id' => 7, 'image_url' => 'hyundai_tucson.png', 'display_order' => 0],
+            ['vehicule_id' => 8, 'image_url' => 'mercedes_benz_eclass.png', 'display_order' => 0],
+            ['vehicule_id' => 9, 'image_url' => 'volkswagen_multivan.png', 'display_order' => 0],
         ]);
 
         // 🔧 Equipments per vehicle (some sample associations)

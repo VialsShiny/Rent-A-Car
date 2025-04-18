@@ -2,6 +2,7 @@
     'id' => 0,
     'name' => 'Undefined',
     'model' => 'Undefined',
+    'image' => false,
     'price' => 'E',
     'type' => 'Not Found',
     'transmission' => 'Not Found',
@@ -9,8 +10,6 @@
     'air_conditioning' => 'Not found'
 ])
 @php
-    $image = strtolower(str_replace(' ', '_', $name)) . '_' . strtolower(str_replace(' ', '_', $model)) . '.png';
-
     if ($air_conditioning == 1) {
         $air_conditioning = 'Air Conditionner';
     }
