@@ -14,8 +14,6 @@ filterButtons.forEach(button => {
 });
 
 function createVehiculeCard(vehicule) {
-  console.log(vehicule);
-
   const brand = vehicule['brand'] ? vehicule['brand'].toLowerCase().replace(/\s+/g, '_') : 'default_name';
   const model = vehicule['model'] ? vehicule['model'].toLowerCase().replace(/\s+/g, '_') : 'default_model';
 
@@ -84,12 +82,25 @@ function getVehicules(vehicule_type, fuel_type, transmission) {
       SuppOverlay('loading-screen');
       vehiculesContainer.innerHTML = '';
 
+      if (data.message) {
+        const errorMessage = document.createElement('p');
+        errorMessage.textContent = data.message;
+        errorMessage.classList.add('text-4xl', 'text-red-500', 'py-6')
+        vehiculesContainer.appendChild(errorMessage);
+        return;
+      }
+
       data.forEach(vehicule => {
         const card = createVehiculeCard(vehicule);
         vehiculesContainer.appendChild(card);
       });
+
+
     })
-    .catch(error => console.error('Erreur:', error.message));
+    .catch(error => function () {
+      SuppOverlay('loading-screen');
+      console.error(error.message);
+    });
 }
 
 checkButton();
