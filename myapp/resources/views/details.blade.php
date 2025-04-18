@@ -1,7 +1,8 @@
 <x-app-layout :title="$title">
     <div class="grid grid-cols-2 gap-12">
-        <x-car-presentation name="{{ $vehicule->brand }}" price_per_day="{{ $vehicule->price_per_day }}" car_image="{{ $car_image }}"/>
-            <div class="flex flex-col gap-8">
+        <x-car-presentation name="{{ $vehicule->brand }}" price_per_day="{{ $vehicule->price_per_day }}"
+            car_image="{{ $car_image }}" />
+        <div class="flex flex-col gap-8">
             <strong class="text-2xl">Technical Specification</strong>
             <div class="flex flex-wrap gap-6">
                 <x-specification-container icon="ri-draggable" title="Gear Box" info="{{ $vehicule->transmission }}" />
@@ -22,14 +23,13 @@
                 <strong class="text-2xl">Car Equipments</strong>
                 <div class="grid grid-cols-2 gap-4">
                     @foreach ($equipments as $equipment)
-                        @php
-                            // Vérifie si l'équipement est associé au véhicule
-                            $isAssociated = $vehicule->equipments->contains($equipment->id);
-                        @endphp
+                                        @php
+                                            $isAssociated = $vehicule->equipments->contains($equipment->id);
+                                        @endphp
 
-                        <x-equipment-check id_equipment="{{ $equipment->id }}"
-                            id_vehicule_equipment="{{ $isAssociated ? $vehicule->equipments->where('id', $equipment->id)->first()->id : null }}"
-                            equipment_name="{{ $equipment->name }}" :checked="$isAssociated" />
+                                        <x-equipment-check id_equipment="{{ $equipment->id }}"
+                                            id_vehicule_equipment="{{ $isAssociated ? $vehicule->equipments->where('id', $equipment->id)->first()->id : null }}"
+                                            equipment_name="{{ $equipment->name }}" :checked="$isAssociated" />
                     @endforeach
                 </div>
             </div>
@@ -51,4 +51,5 @@
             @endforeach
         </div>
     </div>
+    <x-brand-banner></x-brand-banner>
 </x-app-layout>

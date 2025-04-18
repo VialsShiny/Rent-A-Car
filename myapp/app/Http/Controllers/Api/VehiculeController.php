@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Vehicule;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 
 class VehiculeController extends Controller
 {
@@ -33,5 +32,15 @@ class VehiculeController extends Controller
         $data = $query->get();
 
         return response()->json($data);
+    }
+
+    public function getBrand(): JsonResponse
+    {
+        $brands = Vehicule::select('brand')->distinct()->pluck('brand');
+
+        return response()->json([
+            'message' => 'Toutes les marques ont été récupérées.',
+            'brands' => $brands
+        ]);
     }
 }
