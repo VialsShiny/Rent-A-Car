@@ -35,4 +35,20 @@
             </div>
         </div>
     </div>
+    <div class="flex flex-col gap-y-8 py-12 mt-24">
+        <div class="flex justify-between items-center">
+            <h3 class="text-3xl font-bold">Others cars</h3>
+            <a href="/vehicules" class="font-bold text-lg hover:pr-3 transition-all ease-in-out duration-500">View All
+                <i class="ri-arrow-right-long-line"></i></a>
+        </div>
+        <div class="grid grid-cols-3 gap-4">
+            @foreach ($vehicules as $vehicule)
+                <x-car-card id="{{ $vehicule->id }}" image="{{ strtolower($vehicule->brand) }}"
+                    image_alt="Image of {{ $vehicule->brand }}" name="{{ $vehicule->brand }}" model="{{ $vehicule->model }}"
+                    price="{{ $vehicule->price_per_day }}" type="{{ $vehicule->vehiculeType->name }}"
+                    transmission="{{ $vehicule->transmission }}" fuel="{{ $vehicule->fuel_type }}"
+                    air_conditioning="{{ $vehicule->air_conditioning }}" />
+            @endforeach
+        </div>
+    </div>
 </x-app-layout>

@@ -20,30 +20,28 @@
     }
 @endphp
 
-<div class="flex flex-col gap-6 p-6 bg-gray-500/20 rounded-xl">
+       <div class="flex flex-col gap-6 p-6 bg-gray-500/20 rounded-xl">
     <img src="{{ asset('img/img-card') . '/' . $image }}" alt="{{ $name }} {{ $model }} car" class="blur-sm">
     <div class="w-full">
-        <div class="flex justify-between">
+     <div class="flex justify-between">
             <strong class="text-md">{{ ucfirst($name) }}</strong>
             <em class="text-indigo-500 font-bold text-md not-italic">${{ $price }}</em>
         </div>
         <div class="flex justify-between">
             <em class="text-sm">{{ ucfirst($type) }}</em>
-            <p class="text-sm">per day</p>
+     <p class="text-sm">per day</p>
         </div>
     </div>
     <div class="w-full grid grid-cols-3 gap-2">
-        <div class="flex items-center justify-center gap-1">
+        <div lass="flex items-center justify-start gap-1">
             <i class="ri-draggable text-xl"></i>
             <em class="font-thin text-sm not-italic">{{ ucfirst($transmission) }}</em>
         </div>
-        <div class="flex items-ce
-       nter justify-center gap-1"
-       >
+        <div class="flex items-center justify-center gap-1">
             <i class="ri-gas-station-fill text-xl"></i>
             <em class="font-thin text-sm not-italic">{{ ucfirst($fuel) }}</em>
         </div>
-        <div class="flex items-center justify-center gap-1">
+        <div class="flex items-center justify-end gap-1">
             <i class="ri-snowflake-fill text-xl"></i>
             <em class="font-thin text-sm not-italic">{{ $air_conditioning }}</em>
         </div>
