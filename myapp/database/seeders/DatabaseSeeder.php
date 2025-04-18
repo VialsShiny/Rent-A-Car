@@ -37,21 +37,21 @@ class DatabaseSeeder extends Seeder
             ['brand' => 'Ford', 'model' => 'F-150', 'year' => 2021, 'price_per_day' => 75.00, 'doors' => 4, 'fuel_type' => 'diesel', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 5],
             ['brand' => 'BMW', 'model' => '4 Series Cabriolet', 'year' => 2023, 'price_per_day' => 95.00, 'doors' => 2, 'fuel_type' => 'essence', 'air_conditioning' => true, 'seats' => 4, 'transmission' => 'automatique', 'vehicule_type_id' => 6],
             ['brand' => 'Hyundai', 'model' => 'Tucson', 'year' => 2022, 'price_per_day' => 50.00, 'doors' => 5, 'fuel_type' => 'hybride', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 4],
-            ['brand' => 'Mercedes', 'model' => 'E-Class', 'year' => 2023, 'price_per_day' => 90.00, 'doors' => 4, 'fuel_type' => 'diesel', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 1],
+            ['brand' => 'Mercedes Benz', 'model' => 'E-Class', 'year' => 2023, 'price_per_day' => 90.00, 'doors' => 4, 'fuel_type' => 'diesel', 'air_conditioning' => true, 'seats' => 5, 'transmission' => 'automatique', 'vehicule_type_id' => 1],
             ['brand' => 'Volkswagen', 'model' => 'Multivan', 'year' => 2021, 'price_per_day' => 70.00, 'doors' => 5, 'fuel_type' => 'essence', 'air_conditioning' => true, 'seats' => 7, 'transmission' => 'automatique', 'vehicule_type_id' => 2],
         ]);
 
         // 📸 Vehicle Photos (1 per vehicle for now)
         DB::table('vehicule_photo')->insert([
-            ['vehicule_id' => 1, 'image_url' => 'images/toyota_corolla_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 2, 'image_url' => 'images/honda_odyssey_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 3, 'image_url' => 'images/jeep_wrangler_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 4, 'image_url' => 'images/mazda_cx5_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 5, 'image_url' => 'images/ford_f150_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 6, 'image_url' => 'images/bmw_4series_cab_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 7, 'image_url' => 'images/hyundai_tucson_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 8, 'image_url' => 'images/mercedes_eclass_1.jpg', 'display_order' => 0],
-            ['vehicule_id' => 9, 'image_url' => 'images/vw_multivan_1.jpg', 'display_order' => 0],
+            ['vehicule_id' => 1, 'image_url' => 'toyota_corolla.png', 'display_order' => 0],
+            ['vehicule_id' => 2, 'image_url' => 'honda_odyssey.png', 'display_order' => 0], 
+            ['vehicule_id' => 3, 'image_url' => 'jeep_wrangler.png', 'display_order' => 0],
+            ['vehicule_id' => 4, 'image_url' => 'mazda_cx-5.png', 'display_order' => 0],
+            ['vehicule_id' => 5, 'image_url' => 'ford_f-150.png', 'display_order' => 0],
+            ['vehicule_id' => 6, 'image_url' => 'bmw_4_series_cabriolet.png', 'display_order' => 0],
+            ['vehicule_id' => 7, 'image_url' => 'hyundai_tucson.png', 'display_order' => 0],
+            ['vehicule_id' => 8, 'image_url' => 'mercedes_benz_e-class.png', 'display_order' => 0],
+            ['vehicule_id' => 9, 'image_url' => 'volkswagen_multivan.png', 'display_order' => 0],
         ]);
 
         // 🔧 Equipments per vehicle (some sample associations)

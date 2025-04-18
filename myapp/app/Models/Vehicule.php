@@ -10,6 +10,11 @@ class Vehicule extends Model
 
     protected $fillable = ['id', 'brand', 'model', 'vehicule_type_id', 'price_per_day', 'fuel_type', 'air_conditioning', 'transmission'];
 
+        public function vehiculeImage()
+        {
+            return $this->hasMany(VehiculeImage::class);
+        }
+
     public function vehiculeType()
     {
         return $this->belongsTo(VehiculeType::class);

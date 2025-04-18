@@ -11,25 +11,35 @@ class VehiculeController extends Controller
 {
     public function all(Request $request): JsonResponse
     {
+        $request->validate([
+            'vehicule_type' => 'nullable|string',
+            'fuel_type' => 'nullable|string',
+            'transmission' => 'nullable|string',
+        ]);
+
         $vehicule_type = $request->input('vehicule_type');
         $fuel_type = $request->input('fuel_type');
         $transmission = $request->input('transmission');
 
-        $query = Vehicule::query();
+        $query = Vehicule::with('vehiculeImage');
 
-        if ($vehicule_type !== 'all') {
+        if ($vehicule_type && $vehicule_type !== 'all') {
             $query->where('vehicule_type_id', $vehicule_type);
         }
 
-        if ($fuel_type !== 'all') {
+        if ($fuel_type && $fuel_type !== 'all') {
             $query->where('fuel_type', $fuel_type);
         }
 
-        if ($transmission !== 'all') {
+        if ($transmission && $transmission !== 'all') {
             $query->where('transmission', $transmission);
         }
 
         $data = $query->get();
+
+        if ($data->isEmpty()) {
+            return response()->json(['message' => 'Aucun véhicule trouvé.'], 404);
+        }
 
         return response()->json($data);
     }

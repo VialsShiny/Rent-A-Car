@@ -11,13 +11,15 @@ function checkButton() {
 
 filterButtons.forEach(button => {
   button.addEventListener('click', checkButton);
-}); 
+});
 
 function createVehiculeCard(vehicule) {
+  console.log(vehicule);
+
   const brand = vehicule['brand'] ? vehicule['brand'].toLowerCase().replace(/\s+/g, '_') : 'default_name';
   const model = vehicule['model'] ? vehicule['model'].toLowerCase().replace(/\s+/g, '_') : 'default_model';
 
-  const image = `${brand}_${model}.png`;
+  const image = vehicule['vehicule_image'][0]['image_url'];
 
   const airConditioning = vehicule['air_conditioning'] === 1 ? 'Air Conditionner' : 'No Air Conditioning';
 
@@ -55,7 +57,6 @@ function createVehiculeCard(vehicule) {
       View Details
   </a>
 `;
-
 
   return card;
 }
